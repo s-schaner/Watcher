@@ -1,0 +1,66 @@
+{
+  "id": null,
+  "title": "Watcher Dashboard",
+  "panels": [
+    {
+      "type": "stat",
+      "title": "Power",
+      "gridPos": {"x": 0, "y": 0, "w": 6, "h": 4},
+      "datasource": "InfluxDB",
+      "targets": [{"query": "from(bucket: 'system') |> range(start: -5m) |> last() |> keep(columns: ['power_on'])"}],
+      "fieldConfig": {"defaults": {"color": {"mode": "fixed", "fixedColor": "red"}}, "overrides": []}
+    },
+    {
+      "type": "stat",
+      "title": "CPU Load",
+      "gridPos": {"x": 6, "y": 0, "w": 6, "h": 4},
+      "datasource": "InfluxDB",
+      "targets": [{"query": "from(bucket: 'system') |> range(start: -5m) |> last() |> keep(columns: ['cpu_load'])"}],
+      "fieldConfig": {"defaults": {"color": {"mode": "fixed", "fixedColor": "red"}}, "overrides": []}
+    },
+    {
+      "type": "stat",
+      "title": "Memory Usage",
+      "gridPos": {"x": 12, "y": 0, "w": 6, "h": 4},
+      "datasource": "InfluxDB",
+      "targets": [{"query": "from(bucket: 'system') |> range(start: -5m) |> last() |> keep(columns: ['memory_usage'])"}],
+      "fieldConfig": {"defaults": {"color": {"mode": "fixed", "fixedColor": "red"}}, "overrides": []}
+    },
+    {
+      "type": "stat",
+      "title": "Backhaul",
+      "gridPos": {"x": 0, "y": 4, "w": 6, "h": 4},
+      "datasource": "InfluxDB",
+      "targets": [{"query": "from(bucket: 'system') |> range(start: -5m) |> last() |> keep(columns: ['backhaul'])"}],
+      "fieldConfig": {"defaults": {"color": {"mode": "fixed", "fixedColor": "red"}}, "overrides": []}
+    },
+    {
+      "type": "stat",
+      "title": "Temperature",
+      "gridPos": {"x": 6, "y": 4, "w": 6, "h": 4},
+      "datasource": "InfluxDB",
+      "targets": [{"query": "from(bucket: 'system') |> range(start: -5m) |> last() |> keep(columns: ['temperature'])"}],
+      "fieldConfig": {"defaults": {"color": {"mode": "fixed", "fixedColor": "red"}}, "overrides": []}
+    },
+    {
+      "type": "stat",
+      "title": "Humidity",
+      "gridPos": {"x": 12, "y": 4, "w": 6, "h": 4},
+      "datasource": "InfluxDB",
+      "targets": [{"query": "from(bucket: 'system') |> range(start: -5m) |> last() |> keep(columns: ['humidity'])"}],
+      "fieldConfig": {"defaults": {"color": {"mode": "fixed", "fixedColor": "red"}}, "overrides": []}
+    },
+    {
+      "type": "stat",
+      "title": "LTE Active",
+      "gridPos": {"x": 0, "y": 8, "w": 6, "h": 4},
+      "datasource": "InfluxDB",
+      "targets": [{"query": "from(bucket: 'system') |> range(start: -5m) |> last() |> keep(columns: ['lte_active'])"}],
+      "fieldConfig": {"defaults": {"color": {"mode": "fixed", "fixedColor": "red"}}, "overrides": []}
+    }
+  ],
+  "schemaVersion": 38,
+  "version": 0,
+  "editable": true,
+  "style": "dark"
+}
